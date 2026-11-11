@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0f766e">
+<title>Park My Car</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo" aria-hidden="true">P</div>
+  <h1>Park My Car</h1>
+</header>
+
+<main id="app">
+  <!-- HOME: nothing saved -->
+  <section id="home" hidden>
+    <p class="lead">Parked in a big mall? Save your spot in one tap and find your way back later.</p>
+    <button id="parkBtn" class="park-btn">
+      <span class="park-p">P</span>
+      <span>Park here</span>
+    </button>
+    <p class="hint">Allow location when asked. In basements GPS can be weak, so add the floor, slot number and a photo.</p>
+    <div id="historyWrap" hidden>
+      <h2>Recent spots</h2>
+      <ul id="history" class="history"></ul>
+    </div>
+  </section>
+
+  <!-- PARKED: a spot is saved -->
+  <section id="parked" hidden>
+    <div class="card">
+      <div class="row between">
+        <span class="badge">Your car is parked</span>
+        <span id="ago" class="muted"></span>
+      </div>
+      <div id="slotLine" class="slot"></div>
+      <div id="metaLine" class="muted"></div>
+      <img id="photoView" class="photo" alt="Photo of the parking spot" hidden>
+      <p id="noteView" class="note" hidden></p>
+      <p id="accView" class="muted small"></p>
+    </div>
+
+    <button id="findBtn" class="primary">Find my car</button>
+    <div class="grid2">
+      <button id="editBtn" class="secondary">Edit details</button>
+      <button id="shareBtn" class="secondary">Share</button>
+    </div>
+    <button id="clearBtn" class="danger">I've left – clear spot</button>
+  </section>
+
+  <!-- FIND: navigation to the car -->
+  <section id="find" hidden>
+    <div class="card center">
+      <div id="compass" class="compass" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="ring"/><polygon id="arrow" points="50,8 66,58 50,48 34,58" class="arrowshape"/></svg>
+      </div>
+      <div id="distance" class="distance">--</div>
+      <div id="findStatus" class="muted">Getting your location…</div>
+      <img id="findPhoto" class="photo" alt="Photo of the parking spot" hidden>
+      <p id="findHint" class="hint"></p>
+    </div>
+    <a id="mapsLink" class="primary linkbtn" target="_blank" rel="noopener">Open walking directions</a>
+    <button id="backBtn" class="secondary">Back</button>
+  </section>
+
+  <!-- SAVE / EDIT FORM -->
+  <section id="form" hidden>
+    <div class="card">
+      <h2 id="formTitle">Save your spot</h2>
+      <div id="gpsBox" class="gps"></div>
+
+      <label>Floor / level</label>
+      <div id="floorChips" class="chips"></div>
+      <input id="floorOther" type="text" placeholder="Other (e.g. Roof, P3)" maxlength="12">
+
+      <label for="slot">Slot / pillar number</label>
+      <input id="slot" type="text" placeholder="e.g. 47 or Pillar C12" maxlength="24" autocomplete="off">
+
+      <label>Photo of slot or pillar</label>
+      <div class="row">
+        <label class="photobtn secondary" for="photoInput">Take photo</label>
+        <button id="removePhoto" class="linkonly" hidden>Remove</button>
+      </div>
+      <input id="photoInput" type="file" accept="image/*" capture="environment" hidden>
+      <img id="photoPreview" class="photo" alt="" hidden>
+
+      <label for="note">Note (optional)</label>
+      <input id="note" type="text" placeholder="e.g. Near Lift 2, Gate 3 side" maxlength="80">
+    </div>
+    <button id="saveBtn" class="primary">Save</button>
+    <button id="cancelBtn" class="secondary">Cancel</button>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

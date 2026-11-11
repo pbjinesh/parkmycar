@@ -14,8 +14,10 @@ Live demo: https://YOUR-USERNAME.github.io/park-my-car/
 Open on your phone in Chrome, then menu > Add to Home screen.
 
 ## Run locally
-cd www
+```
+cd docs
 python -m http.server 8000
+```
 Open http://localhost:8000 and allow location.
 
 ## Build the Android app

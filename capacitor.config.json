@@ -1,0 +1,6 @@
+{
+  "appId": "com.yourname.parkmycar",
+  "appName": "Park My Car",
+  "webDir": "docs",
+  "android": { "allowMixedContent": false }
+}
