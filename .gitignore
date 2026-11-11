@@ -1,0 +1,7 @@
+node_modules/
+android/
+ios/
+*.jks
+*.keystore
+local.properties
+.DS_Store
